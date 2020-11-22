@@ -9,6 +9,7 @@ import br.com.zup.estrelas.sistema.prefeitura.enums.Area;
 @Repository
 public interface SecretariaRepository extends CrudRepository<Secretaria, Long> {
 	
+    // TODO: Boa!
 	boolean existsByArea(Area area);
 	
 //	Secretaria findByArea(Area area);

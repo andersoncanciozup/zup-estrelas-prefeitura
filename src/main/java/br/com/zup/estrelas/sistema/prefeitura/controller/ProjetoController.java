@@ -21,6 +21,13 @@ import br.com.zup.estrelas.sistema.prefeitura.service.IProjetoService;
 
 @RestController
 @RequestMapping("/projetos")
+//TODO: Anderson, aqui eu consigo compreender por quê tratou o projects
+//como um recurso independente, mas dado que ele só pode pertencer à uma
+//secretaria e isso não muda, seria interessante tratá-lo como um subrecurso
+//de secretaria, seu endpoint seria algo como:
+///secretariats/{id}/projects. Dê uma olhada na referência do portal
+//desenvolvimento para entender melhor por quê isso faz mas sentido como um subrecurso
+//e qualquer dúvida pode falar comigo.
 public class ProjetoController {
 
 	@Autowired
@@ -46,6 +53,8 @@ public class ProjetoController {
 		return projetoService.listaProjetos();
 	}
 
+    // FIXME: Anderson, se você quiser indicar uma operação na URL,
+    // o identificador do recurso vem antes. /{idProjeto}/concluir
 	@PutMapping(path = "/concluido/{idProjeto}", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public MensagemDTO projetoConcluido(@PathVariable Long idProjeto, @RequestBody ProjetoConcluidoDTO dataTermino) {
 		return projetoService.projetoConcluido(idProjeto, dataTermino);

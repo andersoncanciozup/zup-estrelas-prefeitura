@@ -67,6 +67,7 @@ public class SecretariaService implements ISecretariaService {
 	}
 
 	public List<Secretaria> listaSecretaria() {
+	    //TODO: Aqui poderia ser um return direto.
 		List<Secretaria> consultaSecretarias = (List<Secretaria>) secretariaRepository.findAll();
 		return consultaSecretarias;
 	}

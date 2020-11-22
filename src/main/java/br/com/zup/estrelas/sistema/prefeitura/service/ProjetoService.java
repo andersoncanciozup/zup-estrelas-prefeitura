@@ -23,6 +23,7 @@ public class ProjetoService implements IProjetoService {
 
 	private static final MensagemDTO PROJETO_CONCLUIDO = new MensagemDTO("Projeto concluido com sucesso");
 
+	// FIXME: Essa mensagem está um pouco confusa.
 	private static final MensagemDTO DATA_DE_INICIO_MAIOR_QUE_ENTREGA = new MensagemDTO("A data da entrega não pode ser maior do que início");
 
 	private static final MensagemDTO PROJETO_ALTERADO_COM_SUCESSO = new MensagemDTO("Projeto alterado com sucesso");
@@ -62,6 +63,8 @@ public class ProjetoService implements IProjetoService {
 		
 		double novoOrcamentoProjetos = secretaria.getOrcamentoProjetos() - projeto.getCusto();
 		secretaria.setOrcamentoProjetos(novoOrcamentoProjetos);
+		
+		//TODO: Depois dê uma olhada em como talvez só o save do projeto poderia alterar a secretaria.
 		secretariaRepository.save(secretaria);
 		
 		armazenaNovoProjeto(projeto, secretaria);
