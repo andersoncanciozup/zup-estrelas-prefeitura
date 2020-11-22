@@ -145,6 +145,9 @@ public class FuncionarioService implements IFuncionarioService {
 	}
 
 	private boolean verificaSefuncionarioJaExiste(FuncionarioDTO funcionario) {
+	    // FIXME: Sendo um método booleano, você poderia
+	    // só retornar o resultado de funcionarioRepository.existsByCpf, daria
+	    // no mesmo que utilizar o if e tornaria o código mais limpo.
 		if(funcionarioRepository.existsByCpf(funcionario.getCpf())) {
 			return true;
 		} 

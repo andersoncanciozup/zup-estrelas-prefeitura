@@ -10,6 +10,7 @@ public interface FuncionarioRepository extends CrudRepository<Funcionario, Long>
 	
 	boolean existsByCpf(String cpf);
 	
+	//FIXME: Remover código comentado
 //	Funcionario findByCpf(String cpf);
 	
 }

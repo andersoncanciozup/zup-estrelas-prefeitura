@@ -36,6 +36,11 @@ public class SecretariaController {
 		 return secretariaService.consultaSecretaria(idSecretaria);
 	 }
 
+	 // FIXME: Aqui a variável não é a area, isso faz com que o put não funcione
+	 // pois está mapeada na anotação area e na assinatura do método o idSecretaria.
+	 // Essa correspondência não é obrigatória, apesar de tornar as coisas mais fáceis
+	 // mas se vc necessitar de usar nomes diferentes tem a propriedade "name" da anotação
+	 // PathVariable.
 	 @PutMapping(path = "/{area}", produces = { MediaType.APPLICATION_JSON_VALUE })
 	 public MensagemDTO alteraSecretaria(@PathVariable Long idSecretaria, @RequestBody SecretariaDTO alteracaoSecretariaDTO) {
 		 
